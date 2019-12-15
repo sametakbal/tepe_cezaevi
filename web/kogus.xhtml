@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="row">
+            <div class="col-md-6">
+                <h:form id="kogus-table">
+                    <h:dataTable value="#{kogusBean.klist}" var="kog" styleClass="table table-hover table-striped" >
+                        <h:column>
+                            <f:facet name="header">Kogus id</f:facet>
+                            <h:commandLink value="#{kog.kogus_id}" action="#{kogusBean.updateForm(kog)}" />
+
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Kapasite</f:facet>
+                                #{kog.kapasite}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Cinsiyet</f:facet>
+                                #{kog.cinsiyet}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#</f:facet>
+                            <h:commandButton styleClass="btn btn-danger" value="Sil" action="#{kogusBean.remove(kog)}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+            </div>
+            <div class="col-md-6" >
+                <h:form id="kogus-form">
+                    <div class="form-group">
+                        <label for="inputName">Kapasite :</label> 
+                        <h:inputText styleClass="form-control" value="#{kogusBean.kogus.kapasite}" /> <br />
+                        <label for="inputCinsiyet">Cinsiyet :</label>
+                        <h:inputText styleClass="form-control" value="#{kogusBean.kogus.cinsiyet}" />
+                    </div>
+                    <div class="btn-group">
+                        <h:commandButton rendered="#{kogusBean.kogus.kogus_id == 0}" styleClass="btn btn-primary" value="Ekle" action="#{kogusBean.insert()}" />
+                        <h:commandButton rendered="#{kogusBean.kogus.kogus_id != 0}" styleClass="btn btn-secondary" value="Güncelle" action="#{kogusBean.update()}" />
+                        <h:commandButton rendered="#{kogusBean.kogus.kogus_id != 0}" styleClass="btn btn-light" value="Temizle" action="#{kogusBean.clearForm()}" />
+                    </div>
+
+                </h:form>
+
+            </div>
+
+        </div>
+    </ui:define>
+</ui:composition>

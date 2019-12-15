@@ -18,7 +18,6 @@ public abstract class DAO {
     private Connection conn;
     private DBConnection db;
     
-   // public abstract List readAll();
 
     public DAO() {
         
