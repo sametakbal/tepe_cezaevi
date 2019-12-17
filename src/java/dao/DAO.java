@@ -22,6 +22,10 @@ public abstract class DAO {
     public DAO() {
         
     }
+    public abstract void create(Object obj);
+    public abstract List readAll();
+    public abstract void update(Object obj);
+    public abstract void delete(Object obj);
     
 
     public Connection getConn() {

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="row">
+            <div class="col-md-6">
+                <h:form id="ziyaretci-table">
+                    <h:dataTable value="#{ziyaretciBean.zlist}" var="ziy" styleClass="table table-hover table-striped" >
+                        <h:column>
+                            <f:facet name="header">Ziyaretci id</f:facet>
+                            <h:commandLink value="#{ziy.ziyaretci_id}" action="#{ziyaretciBean.updateForm(ziy)}" />
+
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Ad</f:facet>
+                                #{ziy.ad}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Soyad</f:facet>
+                                #{ziy.soyad}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#</f:facet>
+                            <h:commandButton styleClass="btn btn-danger" value="Sil" action="#{ziyaretciBean.remove(ziy)}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+            </div>
+            <div class="col-md-6" >
+                <h:form id="ziyaretci-form">
+                    <div class="form-group">
+                        <label for="inputName">Ad :</label> 
+                        <h:inputText styleClass="form-control" value="#{ziyaretciBean.ziyaretci.ad}" /> <br />
+                        <label for="inputSoyad">Soyad :</label>
+                        <h:inputText styleClass="form-control" value="#{ziyaretciBean.ziyaretci.soyad}" />
+                    </div>
+                    <div class="btn-group">
+                        <h:commandButton rendered="#{ziyaretciBean.ziyaretci.ziyaretci_id == 0}" styleClass="btn btn-primary" value="Ekle" action="#{ziyaretciBean.insert()}" />
+                        <h:commandButton rendered="#{ziyaretciBean.ziyaretci.ziyaretci_id != 0}" styleClass="btn btn-secondary" value="Güncelle" action="#{ziyaretciBean.update()}" />
+                        <h:commandButton rendered="#{ziyaretciBean.ziyaretci.ziyaretci_id != 0}" styleClass="btn btn-light" value="Temizle" action="#{ziyaretciBean.clearForm()}" />
+                    </div>
+
+                </h:form>
+
+            </div>
+
+        </div>
+    </ui:define>
+</ui:composition>

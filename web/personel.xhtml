@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="row">
+            <div class="col-md-7">
+                <h:form id="personel-table">
+                    <h:dataTable value="#{personelBean.plist}" var="per" styleClass="table table-hover table-striped" >
+                        <h:column>
+                            <f:facet name="header">Tc No</f:facet>
+                            <h:commandLink value="#{per.tc_no}" action="#{personelBean.updateForm(per)}" />
+
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Ad</f:facet>
+                                #{per.ad}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Soyad</f:facet>
+                                #{per.soyad}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Dogum Tarihi</f:facet>
+                                #{per.dogum_tarihi}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Parola</f:facet>
+                                #{per.parola}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Birim id</f:facet>
+                                #{per.birim_id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#</f:facet>
+                            <h:commandButton styleClass="btn btn-danger" value="Sil" action="#{personelBean.remove(per)}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+            </div>
+            <div class="col-md-5" >
+                <h:form id="personel-form">
+                    <div class="form-group">
+                        <label for="inputTc">Tc No :</label> 
+                        <h:inputText styleClass="form-control" value="#{personelBean.personel.tc_no}" /> <br />
+                        <label for="inputName">Ad :</label> 
+                        <h:inputText styleClass="form-control" value="#{personelBean.personel.ad}" /> <br />
+                        <label for="inputSoyad">Soyad :</label>
+                        <h:inputText styleClass="form-control" value="#{personelBean.personel.soyad}" /> <br />
+                        <label for="inputDogumTarihi">Dogum Tarihi :</label>
+                        <h:inputText styleClass="form-control" value="#{personelBean.personel.dogum_tarihi}" /> <br />
+                        <label for="inputParola">Parola :</label>
+                        <h:inputText styleClass="form-control" value="#{personelBean.personel.parola}" /> <br />
+                        <label for="inputBirimid">Birim id :</label>
+                        <h:inputText styleClass="form-control" value="#{personelBean.personel.birim_id}" />
+                    </div>
+                    <div class="btn-group">
+                        <h:commandButton rendered="#{personelBean.personel.tc_no == 0}" styleClass="btn btn-primary" value="Ekle" action="#{personelBean.insert()}" />
+                        <h:commandButton rendered="#{personelBean.personel.tc_no  != 0}" styleClass="btn btn-secondary" value="Güncelle" action="#{personelBean.update()}" />
+                        <h:commandButton rendered="#{personelBean.personel.tc_no  != 0}" styleClass="btn btn-light" value="Temizle" action="#{personelBean.clearForm()}" />
+                    </div>
+
+                </h:form>
+
+            </div>
+
+        </div>
+    </ui:define>
+</ui:composition>

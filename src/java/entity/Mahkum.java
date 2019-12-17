@@ -16,12 +16,12 @@ public class Mahkum {
     private long tc_no;
     private String ad;
     private String soyad;
-    private Date dogum_tarihi;
+    private String dogum_tarihi;
     private String ceza_sebebi;
-    private Date giris_tarihi;
-    private Date cikis_tarihi;
+    private String giris_tarihi;
+    private String cikis_tarihi;
     private String cinsiyet;
-    private int kogus_id;
+    private long kogus_id;
 
     public Mahkum() {
     }
@@ -49,11 +49,11 @@ public class Mahkum {
         this.soyad = soyad;
     }
 
-    public Date getDogum_tarihi() {
+    public String getDogum_tarihi() {
         return dogum_tarihi;
     }
 
-    public void setDogum_tarihi(Date dogum_tarihi) {
+    public void setDogum_tarihi(String dogum_tarihi) {
         this.dogum_tarihi = dogum_tarihi;
     }
 
@@ -65,19 +65,19 @@ public class Mahkum {
         this.ceza_sebebi = ceza_sebebi;
     }
 
-    public Date getGiris_tarihi() {
+    public String getGiris_tarihi() {
         return giris_tarihi;
     }
 
-    public void setGiris_tarihi(Date giris_tarihi) {
+    public void setGiris_tarihi(String giris_tarihi) {
         this.giris_tarihi = giris_tarihi;
     }
 
-    public Date getCikis_tarihi() {
+    public String getCikis_tarihi() {
         return cikis_tarihi;
     }
 
-    public void setCikis_tarihi(Date cikis_tarihi) {
+    public void setCikis_tarihi(String cikis_tarihi) {
         this.cikis_tarihi = cikis_tarihi;
     }
 
@@ -89,11 +89,11 @@ public class Mahkum {
         this.cinsiyet = cinsiyet;
     }
 
-    public int getKogus_id() {
+    public long getKogus_id() {
         return kogus_id;
     }
 
-    public void setKogus_id(int kogus_id) {
+    public void setKogus_id(long kogus_id) {
         this.kogus_id = kogus_id;
     }
 
@@ -101,6 +101,9 @@ public class Mahkum {
     public String toString() {
         return "Mahkum{" + "tc_no=" + tc_no + ", ad=" + ad + ", soyad=" + soyad + ", dogum_tarihi=" + dogum_tarihi + ", ceza_sebebi=" + ceza_sebebi + ", giris_tarihi=" + giris_tarihi + ", cikis_tarihi=" + cikis_tarihi + ", cinsiyet=" + cinsiyet + ", kogus_id=" + kogus_id + '}';
     }
+
+
+   
 
    
 

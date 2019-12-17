@@ -11,18 +11,18 @@ package entity;
  */
 public class Ziyaretci {
 
-    private int ziyaretci_id;
+    private long ziyaretci_id;
     private String ad;
     private String soyad;
 
     public Ziyaretci() {
     }
 
-    public int getZiyaretci_id() {
+    public long getZiyaretci_id() {
         return ziyaretci_id;
     }
 
-    public void setZiyaretci_id(int ziyaretci_id) {
+    public void setZiyaretci_id(long ziyaretci_id) {
         this.ziyaretci_id = ziyaretci_id;
     }
 

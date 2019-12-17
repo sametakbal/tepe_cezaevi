@@ -8,7 +8,6 @@ package bean;
 import dao.KogusDAO;
 import entity.Kogus;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -26,33 +25,32 @@ public class KogusBean implements Serializable {
     private Kogus kogus;
 
     public KogusBean() {
-        this.klist = new ArrayList<>();
-        kdao = new KogusDAO();
+        
     }
     public String update(){
         this.getKdao().update(this.kogus);
         clearForm();
-         return "index";
+         return "kogus";
     }
     
     public String updateForm(Kogus kg){
         this.kogus = kg;
-        return "index";
+        return "kogus";
     }
     public String clearForm(){
         this.kogus = new Kogus();
-        return "index";
+        return "kogus";
     }
     
     public String insert(){
         this.getKdao().create(this.kogus);
         clearForm();
-         return "index";
+         return "kogus";
 
     }
     public String remove(Kogus kogus){
         this.getKdao().delete(kogus);
-        return "index";
+        return "kogus";
     }
 
     public List<Kogus> getKlist() {

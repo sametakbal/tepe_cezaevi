@@ -13,32 +13,25 @@ import java.sql.Date;
  */
 public class Personel {
 
-    private int tc_no;
-    private String gorsel;
+    private long tc_no;
     private String ad;
     private String soyad;
-    private Date dogum_tarihi;
+    private String dogum_tarihi;
     private String parola;
-    private int birim_id;
+    private long birim_id;
 
     public Personel() {
     }
 
-    public int getTc_no() {
+    public long getTc_no() {
         return tc_no;
     }
 
-    public void setTc_no(int tc_no) {
+    public void setTc_no(long tc_no) {
         this.tc_no = tc_no;
     }
 
-    public String getGorsel() {
-        return gorsel;
-    }
 
-    public void setGorsel(String gorsel) {
-        this.gorsel = gorsel;
-    }
 
     public String getAd() {
         return ad;
@@ -56,11 +49,11 @@ public class Personel {
         this.soyad = soyad;
     }
 
-    public Date getDogum_tarihi() {
+    public String getDogum_tarihi() {
         return dogum_tarihi;
     }
 
-    public void setDogum_tarihi(Date dogum_tarihi) {
+    public void setDogum_tarihi(String dogum_tarihi) {
         this.dogum_tarihi = dogum_tarihi;
     }
 
@@ -72,17 +65,17 @@ public class Personel {
         this.parola = parola;
     }
 
-    public int getBirim_id() {
+    public long getBirim_id() {
         return birim_id;
     }
 
-    public void setBirim_id(int birim_id) {
+    public void setBirim_id(long birim_id) {
         this.birim_id = birim_id;
     }
 
     @Override
     public String toString() {
-        return "Personel{" + "tc_no=" + tc_no + ", gorsel=" + gorsel + ", ad=" + ad + ", soyad=" + soyad + ", dogum_tarihi=" + dogum_tarihi + ", parola=" + parola + ", birim_id=" + birim_id + '}';
-    }
+        return "Personel{" + "tc_no=" + tc_no + ", ad=" + ad + ", soyad=" + soyad + ", dogum_tarihi=" + dogum_tarihi + ", parola=" + parola + ", birim_id=" + birim_id + '}';
+    }   
 
 }
