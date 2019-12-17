@@ -27,7 +27,6 @@ public class MahkumBean implements Serializable {
 
     public MahkumBean() {
     }
-  
 
     public String update() {
         this.getMdao().update(this.mahkum);
@@ -58,9 +57,7 @@ public class MahkumBean implements Serializable {
     }
 
     public List<Mahkum> getMlist() {
-        if (mlist == null) {
-            this.mlist = this.getMdao().readAll();
-        }
+        this.mlist = this.getMdao().readAll();
         return mlist;
     }
 
@@ -97,6 +94,5 @@ public class MahkumBean implements Serializable {
     public void setSearch(String search) {
         this.search = search;
     }
-    
 
 }
